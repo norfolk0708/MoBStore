@@ -1,0 +1,217 @@
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 90vh;
+    width: 90vw;
+}
+
+.product {
+    flex: 0 0 330px;
+    height: 470px;
+    background-color: $color_white;
+    outline: 4px solid $color_orange;
+    border-radius: 5%;
+    margin: 20px;
+    transition: all 0.7s 0.1s;
+    position: relative;
+    overflow: hidden;
+
+    &__loader {
+        flex: 0 0 330px;
+        height: 470px;
+        background: linear-gradient(-45deg, rgb(82, 81, 81) 0%, rgb(253, 253, 255) 100%, rgb(68, 67, 67) 100%);
+        border-radius: 5%;
+        margin: 20px;
+        transition: all 0.7s 0.1s;
+        animation: loader2 2s ease-in-out 0s infinite alternate none;
+    }
+
+    @keyframes loader2 {
+        0% {
+            opacity: 0.2;
+        }
+
+
+        100% {
+            opacity: 0.5;
+        }
+    }
+
+    &__head {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 4%;
+        background: $color_black;
+        opacity: 0.8;
+        display: flex;
+        justify-content: space-between;
+        padding: 4%;
+    }
+
+    &__title {
+        font-size: 1.75em;
+        padding: 5px;
+    }
+
+    &__favorites {
+        font-size: 40px;
+        line-height: 0.7;
+
+        &__body {
+            position: relative;
+        }
+
+        &__body::before {
+            content: '♡';
+            display: block;
+            color: $color_white;
+        }
+
+        &__active {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        &__active::before {
+            content: '♡';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            color: $color_orange;
+        }
+
+        &__item {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 0 0;
+
+    }
+
+    &__info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        min-height: 25%;
+        width: 100%;
+        padding: 4%;
+        background: $color_black;
+        opacity: 0.8;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &__price {
+        position: relative;
+        font-size: 2.5em;
+        color: $color_orange;
+        font-weight: bold;
+        line-height: 1;
+        width: 40%;
+    }
+
+    &__discount {
+        position: absolute;
+        bottom: 50%;
+        left: 85px;
+        font-size: 0.6em;
+        color: $color_white;
+        font-weight: 400;
+        width: 50%;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 38%;
+            left: -10%;
+            width: 100%;
+            height: 3px;
+            background: $color_orange;
+            rotate: -30deg;
+        }
+    }
+
+    &__rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-size: 1.7em;
+        line-height: 0.75;
+
+        &__body {
+            position: relative;
+        }
+
+        &__body::before {
+            content: '★★★★★';
+            display: block;
+            color: rgb(182, 182, 207);
+        }
+
+        &__active {
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        &__active::before {
+            content: '★★★★★';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            color: $color_orange;
+        }
+
+
+        &__items {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        &__item {
+            flex: 0 0 20%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+    }
+
+    &__glocery {
+        cursor: pointer;
+    }
+
+    &:hover {
+        scale: 1.1;
+        outline: 4px solid $color_orange;
+        box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
+    }
+}

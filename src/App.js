@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter} from 'react-router-dom'
+import './styles/App.scss'
+import AppRouter from './AppRouter/AppRouter'
+import Header from './components/Header'
+import { GlobalContext } from './context/createContext'
+import { useMyContext } from './hooks/useMyContext'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const myContext = useMyContext()
+
+  	return (
+        <GlobalContext.Provider value={myContext}>
+            <BrowserRouter>
+                <Header />
+                <main>
+                    <AppRouter />
+                </main>
+                <footer>
+                    <h1>This is a footer!</h1>
+                </footer>
+		    </BrowserRouter>
+        </GlobalContext.Provider>
+	)
 }
 
-export default App;
+export default App
