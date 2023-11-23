@@ -17,17 +17,11 @@ const Header = () => {
         localStorage.clear()
         setVisibleLoginForm(false)
         navigate('/about')
-        console.log('loqout')
     }
 
     function login() {
         setVisibleLoginForm(true)
-        console.log('login')
     }
-
-    console.log(myProducts, 'gvr')
-
-
 
     const cartCount = myProducts.cart.length
         ? <div>{myProducts.cart.length}</div>

@@ -13,7 +13,7 @@ export const useGetAllProducts = () => {
             const allProductsList = response.data.products
             allProductsList.forEach(product => {
                 product.cart = false
-                product.favorites = '0%'
+                product.favorites = false
             })
             setAllProductsList(allProductsList)
             console.log('useGetAllProducts')
