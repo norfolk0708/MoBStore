@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react'
+import { useMemo } from 'react'
 
 export const useFilterProduct = (productsList ,filter) => {
     let sortedProductList = productsList
@@ -20,9 +20,9 @@ export const useFilterProduct = (productsList ,filter) => {
             }
             sortedProductList = sortedProductList.sort(byField(filter.sort))
         }
-        console.log('useFilterProduct')
+        
     }, [filter])
-    
+    console.log('useFilterProduct')
 
     return sortedProductList
 }

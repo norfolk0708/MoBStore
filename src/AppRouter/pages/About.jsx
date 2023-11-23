@@ -7,10 +7,10 @@ import Loader from "../../components/UI/loaders/Loader"
 const About = () => {
     const { isAuth, isVisibleLoginForm } = useContext(GlobalContext)
     return (
-        <>
-            <h1>ABOUT</h1>
+        <div className="container">
+            <p className='message'>ABOUT</p>
             {isVisibleLoginForm && !isAuth && <Modal> <Login /> </Modal>}
-        </>
+        </div >
 
     )
 }

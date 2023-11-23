@@ -1,11 +1,11 @@
 import React from 'react'
-
+import classes from './Loader.module.css'
 const Loader = () => {
     return (
-        <>
-            <div className='loader'></div>
-            <h1>Loading...</h1>
-        </>
+        <div className={classes.Loader}>
+            <div></div>
+            <p>Loading...</p>
+        </div>
     )
 }
 

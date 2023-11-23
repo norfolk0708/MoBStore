@@ -1,10 +1,14 @@
 .productList {
     display: flex;
     flex-wrap: wrap;
+    min-width: 80%;
     justify-content: center;
-    min-height: 90vh;
-    width: 90vw;
+    /*min-height: 90vh;*/
+    padding: 0 5%;
+    border: 1px solid blue;
 }
+
+
 
 .product {
     flex: 0 0 330px;
@@ -25,6 +29,7 @@
         margin: 20px;
         transition: all 0.7s 0.1s;
         animation: loader2 2s ease-in-out 0s infinite alternate none;
+        border: 5px solid #f00707;
     }
 
     @keyframes loader2 {
@@ -205,8 +210,14 @@
         }
     }
 
-    &__glocery {
+    &__cart {
         cursor: pointer;
+    }
+
+    &__cat {
+        position: absolute;
+        bottom: 0;
+        left: 42%;
     }
 
     &:hover {

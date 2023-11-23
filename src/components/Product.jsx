@@ -1,72 +1,37 @@
-import React, { useContext, useEffect, useState } from 'react'
-import gloceryGrey from '../icons/grocery-store-grey.png'
-import gloceryOrange from '../icons/grocery-store-orange.png'
+import React, { useEffect, useState } from 'react'
+import defaultCart from '../icons/cartDefault.png'
+import activeCart from '../icons/cartActive.png'
 import { Link } from 'react-router-dom'
-import ProductLoader from '../components/UI/loaders/ProductLoader'
 import { useFetching } from '../hooks/useFetching'
-//import { GlobalContext } from '../context/createContext'
+import Loader from './UI/loaders/Loader'
 
-const Product = ({ product }) => {
-    //const { myProducts, setMyProducts } = useContext(GlobalContext)
+const Product = ({ product, products, changeCart, changeFavorite }) => {
     const ratingPercentage = `${product.rating * 20}%`
     const lastPrice = ((product.discountPercentage * product.price) / 10).toFixed(0) + ' $'
     const image = product.thumbnail
     const [addFavorites, setAddFavorites] = useState('0%')
-    const [glocery, setGlocery] = useState(gloceryGrey)
+    const [cart, setCart] = useState(defaultCart)
 
     const [fetching, isLoading, error] = useFetching(() => {
-        product.inGlocery ? setGlocery(gloceryOrange) : setGlocery(gloceryGrey)
-        product.inFavorites === '100%' ? setAddFavorites('100%') : setAddFavorites('0%')
+        product.cart ? setCart(activeCart) : setCart(defaultCart)
+        product.favorites === '100%' ? setAddFavorites('100%') : setAddFavorites('0%')
+        console.log('useFetching in Product ccolo')
     })
 
     useEffect(() => {
         fetching()
-        console.log('useFetching in Product')
-    }, [product])
-
-    const changeGlocery = () => {
-        if (product.inGlocery) {
-            product.inGlocery = false
-            setGlocery(gloceryGrey)
-            //const productsInGlocery = (myProducts.glocery.filter(p => p.id !== product.id))
-            //setMyProducts(() => {
-            // return { ...myProducts, glocery: productsInGlocery }
-            //})
-
-        } else {
-            product.inGlocery = true
-            setGlocery(gloceryOrange)
-            //setMyProducts(() => {
-            //   return { ...myProducts, glocery: [...myProducts.glocery, product] }
-            //})
-        }
-        // console.log(myProducts.glocery, 'myProducts.glocery')
-    }
-
-    const changeFavorite = () => {
-        if (product.inFavorites == '100%') {
-            product.inFavorites = '0%'
-            setAddFavorites('0%')
-            //const productsInFavorites = (myProducts.favorites.filter(p => p.id !== product.id))
-            /*setMyProducts({ ...myProducts, favorites: productsInFavorites })*/
-        } else {
-            product.inFavorites = '100%'
-            setAddFavorites('100%')
-            /* setMyProducts({ ...myProducts, favorites: [...myProducts.favorites, product] })*/
-        }
-        //console.log(myProducts.favorites, 'myProducts.favorites')
-    }
+    }, [changeFavorite, changeCart])
 
     return (
         <>
             {error
                 ? <h1>Some error: {error}</h1>
                 : isLoading
-                    ? <ProductLoader />
+                    ? <Loader />
                     : <div className='product'>
                         <div className='product__head'>
                             <Link className='product__title' to={`/products/${product.id}`}>{product.title}</Link>
-                            <div className='product__favorites' onClick={changeFavorite}>
+                            <div className='product__favorites' onClick={() => changeFavorite(product, products)}>
                                 <div className='product__favorites__body'>
                                     <div className='product__favorites__active' style={{ width: addFavorites }}></div>
                                     <input type='radio' className='product__favorites__item' value={1} name='rating'></input>
@@ -78,7 +43,7 @@ const Product = ({ product }) => {
                         </Link>
                         <div className='product__info'>
                             <div className='product__price'>{product.price} $
-                                {product.discountPercentage > 5 && <div className='product__discount'>{lastPrice}</div>}
+                                {product.discountPercentage > 12 && <div className='product__discount'>{lastPrice}</div>}
                             </div>
                             <div className='product__rating'>
                                 <div className='product__rating__body'>
@@ -91,7 +56,7 @@ const Product = ({ product }) => {
                                         <input type='radio' className='product__rating__item' value={5} name='rating'></input>
                                     </div>
                                 </div>
-                                <img className='product__glocery' onClick={changeGlocery} src={glocery} alt={'grocery'} />
+                                <img className='product__cart' onClick={() => changeCart(product, products)} src={cart} alt={'cart'} />
                             </div>
                         </div>
                     </div>

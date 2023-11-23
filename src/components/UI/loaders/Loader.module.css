@@ -1,0 +1,33 @@
+.Loader {}
+
+.Loader>p {
+    color: white;
+    font-size: 2.5em;
+    border-radius: 25px;
+    padding: 1em;
+}
+
+.Loader>div {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1.5em dotted white;
+    animation: loader 2.5s linear 0s infinite normal none;
+}
+
+@keyframes loader {
+    0% {
+        rotate: 0deg;
+        scale: 1;
+    }
+
+    50% {
+        rotate: 180deg;
+        scale: 1.2;
+    }
+
+    100% {
+        rotate: 360deg;
+        scale: 1;
+    }
+}

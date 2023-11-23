@@ -5,7 +5,7 @@ import Login from "./pages/Login"
 import ProductsCard from "./pages/ProductsCard"
 import About from "./pages/About"
 import { useGetAllProducts } from "../hooks/useGetAllProducts"
-import { useGetGloceryProducts } from "../hooks/useGetGloceryProducts"
+import { useGetСartProducts } from "../hooks/useGetСartProducts"
 import { useGetFavoritesProducts } from "../hooks/useGetFavoritesProducts"
 
 export const privateRoutes = [
@@ -13,7 +13,7 @@ export const privateRoutes = [
     {path: 'about', element: <About />}, 
     {path: 'products', element: <Products hook={useGetAllProducts} />}, 
     {path: 'products/:id', element: <ProductsCard />}, 
-    {path: 'glocery', element: <Products hook={useGetGloceryProducts} />}, 
+    {path: 'cart', element: <Products hook={useGetСartProducts} />}, 
     {path: 'favorites', element: <Products hook={useGetFavoritesProducts} />}, 
     {path: 'error', element: <Error />},
     {path: 'login', element: <Login />},

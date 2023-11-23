@@ -5,13 +5,13 @@ export const useMyContext = () => {
     const [isVisibleLoginForm, setVisibleLoginForm] = useState(false)
     const [allProductsList, setAllProductsList] = useState('')
     const [filterProducts, setFilterProducts] = useState({ category: '', sort: '', query: '' })
-    const [myProducts, setMyProducts] = useState({ favorites: [], glocery: [] })
+    const [myProducts, setMyProducts] = useState({ favorites: [], cart: [] })
 
     return { 
         isAuth, setIsAuth, 
         isVisibleLoginForm, setVisibleLoginForm, 
         allProductsList, setAllProductsList, 
         filterProducts, setFilterProducts, 
-        myProducts, setMyProducts 
+        myProducts, setMyProducts
     }
 }

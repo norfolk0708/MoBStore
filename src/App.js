@@ -10,7 +10,7 @@ function App() {
 
   	return (
         <GlobalContext.Provider value={myContext}>
-            <BrowserRouter>
+            <BrowserRouter >
                 <Header />
                 <main>
                     <AppRouter />

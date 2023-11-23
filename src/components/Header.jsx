@@ -3,7 +3,7 @@ import ButtonMain from './UI/buttons/ButtonMain'
 import { Link, useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/createContext'
 import Filter from './Filter'
-import gloceryBlack from '../icons/grocery-store-black.png'
+import cartBlack from '../icons/cartHeader.png'
 import heartDefault from '../icons/heart-default.png'
 
 const Header = () => {
@@ -34,8 +34,8 @@ const Header = () => {
                     <Link to={`/favorites`}>
                         <img className='myProducts__favorites' src={heartDefault} alt={`favorites`} />
                     </Link>
-                    <Link to={`/glocery`}>
-                        <img className='myProducts__glocery' src={gloceryBlack} alt={`glocery`} />
+                    <Link to={`/cart`}>
+                        <img className='myProducts__cart' src={cartBlack} alt={`cart`} />
                     </Link>
                     <ButtonMain>
                         <Link to="/products">Products</Link>

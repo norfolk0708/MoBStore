@@ -54,17 +54,17 @@ header {
 }
 
 main {
-    padding: 5% 4% 0 4%;
+    padding-top: 10vh;
     flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     .container {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        min-height: 70vh;
+        border: 1px solid #e21212;
+        position: relative;
+
     }
 }
 
@@ -73,43 +73,25 @@ footer {
     background: $color_white;
     color: $color_black !important;
     font-size: 50px;
+    color: $color_black;
+    text-align: center;
+    line-height: 20vh;
 }
 
 a {
     color: $color_orange;
 }
 
-h1 {
+.message {
+    height: 20%;
     color: $color_white;
     text-align: center;
     font-size: 50px;
-    margin-top: 200px;
-}
-
-.loader {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 1.5em dotted $color_white;
-    animation: loader 2.5s linear 0s infinite normal none;
-    margin-bottom: -150px;
-}
-
-@keyframes loader {
-    0% {
-        rotate: 0deg;
-        scale: 1;
-    }
-
-    50% {
-        rotate: 180deg;
-        scale: 1.2;
-    }
-
-    100% {
-        rotate: 360deg;
-        scale: 1;
-    }
+    border: 5px solid $color_white;
+    outline: 5px solid $color_orange;
+    box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
+    border-radius: 25px;
+    padding: 1em;
 }
 
 .myProducts {
@@ -122,7 +104,7 @@ h1 {
         scale: 1.5;
     }
 
-    &__glocery {
+    &__cart {
         padding: 2em;
         scale: 1.5;
     }
