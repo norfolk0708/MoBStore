@@ -5,9 +5,11 @@ import { GlobalContext } from '../context/createContext'
 import Filter from './Filter'
 import cartBlack from '../icons/cartHeader.png'
 import heartDefault from '../icons/heart-default.png'
+import shop from '../icons/shop.png'
+
 
 const Header = () => {
-    const { setIsAuth, setVisibleLoginForm, filterProducts, setFilterProducts } = useContext(GlobalContext)
+    const { setIsAuth, setVisibleLoginForm, filterProducts, setFilterProducts, myProducts } = useContext(GlobalContext)
     const isAuth = localStorage.getItem('auth')
     const navigate = useNavigate()
     function loqout() {
@@ -23,6 +25,18 @@ const Header = () => {
         console.log('login')
     }
 
+    console.log(myProducts, 'gvr')
+
+
+
+    const cartCount = myProducts.cart.length
+        ? <div>{myProducts.cart.length}</div>
+        : <></>
+
+    const favoriteCount = myProducts.favorites.length
+        ? <div>{myProducts.favorites.length}</div>
+        : <></>
+
     return (
         <header>
             <Link to="/about">
@@ -30,23 +44,23 @@ const Header = () => {
             </Link>
             {isAuth && <Filter filter={filterProducts} setFilter={setFilterProducts} />}
             {isAuth
-                ? <div className='myProducts'>
-                    <Link to={`/favorites`}>
-                        <img className='myProducts__favorites' src={heartDefault} alt={`favorites`} />
-                    </Link>
-                    <Link to={`/cart`}>
-                        <img className='myProducts__cart' src={cartBlack} alt={`cart`} />
-                    </Link>
-                    <ButtonMain>
-                        <Link to="/products">Products</Link>
-                    </ButtonMain>
-                    <ButtonMain onClick={loqout}>
-                        <Link to="/about">LOGOUT</Link>
-                    </ButtonMain>
-                </div>
-                : <ButtonMain onClick={login}>
-                    LOGIN
-                </ButtonMain>
+                ? <>
+                    <nav>
+                        <Link to={`/products`}>
+                            <img src={shop} alt={`shop`} />
+                        </Link>
+                        <Link to={`/favorites`}>
+                            {favoriteCount}
+                            <img src={heartDefault} alt={`favorites`} />
+                        </Link>
+                        <Link to={`/cart`}>
+                            {cartCount}
+                            <img src={cartBlack} alt={`cart`} />
+                        </Link>
+                    </nav>
+                    <ButtonMain onClick={loqout}>LOGOUT</ButtonMain>
+                </>
+                : <ButtonMain onClick={login}>LOGIN</ButtonMain>
             }
         </header>
     )

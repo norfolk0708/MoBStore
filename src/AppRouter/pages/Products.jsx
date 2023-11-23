@@ -5,6 +5,8 @@ import { useFilterProduct } from '../../hooks/useFilterProduct'
 import { toCapitalLetter } from '../../utils/toCapitalLetter'
 import cryingCat from '../../icons/cat-crying.gif'
 import Loader from '../../components/UI/loaders/Loader'
+import addSound from '../../audio/add.mp3'
+import removeSound from '../../audio/remove.mp3'
 
 const Products = ({ hook }) => {
     const { myProducts, setMyProducts, filterProducts } = useContext(GlobalContext)
@@ -19,18 +21,20 @@ const Products = ({ hook }) => {
         renderCount.current++
         console.log(renderCount.current, 'products')
     })
-
+    const audio = new Audio();
     const changeCart = (product, products) => {
         if (product.cart) {
             product.cart = false
             const productsInCart = (myProducts.cart.filter(p => p.id !== product.id))
             setMyProducts({ ...myProducts, cart: productsInCart })
-
+            new Audio(removeSound).play()
         } else {
             list.current = products
             product.cart = true
             setMyProducts({ ...myProducts, cart: [...myProducts.cart, product] })
+            new Audio(addSound).play()
         }
+
     }
 
     const changeFavorite = (product, products) => {
@@ -38,10 +42,12 @@ const Products = ({ hook }) => {
             product.favorites = '0%'
             const favoritesProduct = (myProducts.favorites.filter(p => p.id !== product.id))
             setMyProducts({ ...myProducts, favorites: favoritesProduct })
+            new Audio(removeSound).play()
         } else {
             list.current = products
             product.favorites = '100%'
             setMyProducts({ ...myProducts, favorites: [...myProducts.favorites, product] })
+            new Audio(addSound).play()
         }
     }
 

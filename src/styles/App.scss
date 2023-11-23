@@ -62,7 +62,6 @@ main {
         justify-content: center;
         align-items: center;
         min-height: 70vh;
-        border: 1px solid #e21212;
         position: relative;
 
     }
@@ -94,22 +93,42 @@ a {
     padding: 1em;
 }
 
-.myProducts {
-    width: 30%;
+nav {
+    width: 10%;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 
-    &__favorites {
-        padding: 2em;
-        scale: 1.5;
+    a {
+        position: relative;
+        padding: 1.4em;
     }
 
-    &__cart {
-        padding: 2em;
-        scale: 1.5;
+    div {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        color: $color_white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        text-align: center;
+        background: rgb(238, 21, 5);
+        font-weight: 800;
+        line-height: 25px;
+        animation: count 0.4s ease-in 0s 1 normal none;
     }
 
-    button {
-        margin-left: 5em;
+    @keyframes count {
+        0% {
+            top: -100%;
+        }
+
+        100% {
+            top: 0%;
+        }
+    }
+
+    img {
+        scale: 1.4;
     }
 }

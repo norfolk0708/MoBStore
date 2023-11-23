@@ -3,12 +3,8 @@
     flex-wrap: wrap;
     min-width: 80%;
     justify-content: center;
-    /*min-height: 90vh;*/
     padding: 0 5%;
-    border: 1px solid blue;
 }
-
-
 
 .product {
     flex: 0 0 330px;
@@ -28,15 +24,13 @@
         border-radius: 5%;
         margin: 20px;
         transition: all 0.7s 0.1s;
-        animation: loader2 2s ease-in-out 0s infinite alternate none;
-        border: 5px solid #f00707;
+        animation: loader 2s ease-in-out 0s infinite alternate none;
     }
 
-    @keyframes loader2 {
+    @keyframes loader {
         0% {
             opacity: 0.2;
         }
-
 
         100% {
             opacity: 0.5;

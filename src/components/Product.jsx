@@ -3,7 +3,7 @@ import defaultCart from '../icons/cartDefault.png'
 import activeCart from '../icons/cartActive.png'
 import { Link } from 'react-router-dom'
 import { useFetching } from '../hooks/useFetching'
-import Loader from './UI/loaders/Loader'
+import ProductLoader from './UI/loaders/ProductLoader'
 
 const Product = ({ product, products, changeCart, changeFavorite }) => {
     const ratingPercentage = `${product.rating * 20}%`
@@ -27,7 +27,7 @@ const Product = ({ product, products, changeCart, changeFavorite }) => {
             {error
                 ? <h1>Some error: {error}</h1>
                 : isLoading
-                    ? <Loader />
+                    ? <ProductLoader />
                     : <div className='product'>
                         <div className='product__head'>
                             <Link className='product__title' to={`/products/${product.id}`}>{product.title}</Link>
