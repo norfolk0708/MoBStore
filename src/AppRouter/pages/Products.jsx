@@ -24,7 +24,7 @@ const Products = ({ hook }) => {
     return (
         <div className="container">
             {error
-                ? <h1>Some error: {error}</h1>
+                ? <p className='message'>{error}</p>
                 : isLoading
                     ? <Loader />
                     : currentProductList.length

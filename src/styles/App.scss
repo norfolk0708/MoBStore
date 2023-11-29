@@ -1,6 +1,7 @@
 $color_black: #2a2930;
 $color_orange: #CF7309;
 $color_white: #D1D7E0;
+$color_red: #f01a0b;
 
 @import './nullStyle.scss';
 @import './formElements.scss';
@@ -112,7 +113,7 @@ nav {
         height: 25px;
         border-radius: 50%;
         text-align: center;
-        background: rgb(238, 21, 5);
+        background: $color_red;
         font-weight: 800;
         line-height: 25px;
         animation: count 0.4s ease-in 0s 1 normal none;

@@ -4,36 +4,77 @@
     min-width: 80%;
     justify-content: center;
     padding: 0 5%;
+    position: relative;
 }
 
 .product {
     flex: 0 0 330px;
     height: 470px;
-    background-color: $color_white;
-    outline: 4px solid $color_orange;
     border-radius: 5%;
     margin: 20px;
     transition: all 0.7s 0.1s;
     position: relative;
     overflow: hidden;
 
-    &__loader {
-        flex: 0 0 330px;
-        height: 470px;
-        background: linear-gradient(-45deg, rgb(82, 81, 81) 0%, rgb(253, 253, 255) 100%, rgb(68, 67, 67) 100%);
-        border-radius: 5%;
-        margin: 20px;
-        transition: all 0.7s 0.1s;
-        animation: loader 2s ease-in-out 0s infinite alternate none;
+    &:hover {
+        scale: 1.1;
+        box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
     }
 
-    @keyframes loader {
+    &__loader {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(322deg, #2a2930, #d1d7e0);
+        background-size: 400% 400%;
+        -webkit-animation: AnimationName 6s ease infinite;
+        -moz-animation: AnimationName 6s ease infinite;
+        animation: AnimationName 6s ease infinite;
+        transition: all 1s ease 0s;
+        opacity: 1
+    }
+
+    @-webkit-keyframes AnimationName {
         0% {
-            opacity: 0.2;
+            background-position: 92% 0%
+        }
+
+        50% {
+            background-position: 9% 100%
         }
 
         100% {
-            opacity: 0.5;
+            background-position: 92% 0%
+        }
+    }
+
+    @-moz-keyframes AnimationName {
+        0% {
+            background-position: 92% 0%
+        }
+
+        50% {
+            background-position: 9% 100%
+        }
+
+        100% {
+            background-position: 92% 0%
+        }
+    }
+
+    @keyframes AnimationName {
+        0% {
+            background-position: 92% 0%
+        }
+
+        50% {
+            background-position: 9% 100%
+        }
+
+        100% {
+            background-position: 92% 0%
         }
     }
 
@@ -58,6 +99,7 @@
     &__favorites {
         font-size: 40px;
         line-height: 0.7;
+        padding: 2%;
 
         &__body {
             position: relative;
@@ -103,7 +145,6 @@
         height: 100%;
         object-fit: cover;
         object-position: 0 0;
-
     }
 
     &__info {
@@ -121,32 +162,32 @@
     }
 
     &__price {
-        position: relative;
+        display: flex;
+    }
+
+    &__currentPrice {
         font-size: 2.5em;
         color: $color_orange;
         font-weight: bold;
-        line-height: 1;
-        width: 40%;
     }
 
     &__discount {
-        position: absolute;
-        bottom: 50%;
-        left: 85px;
-        font-size: 0.6em;
+        margin: -3% 0 0 4%;
+        font-size: 2em;
         color: $color_white;
-        font-weight: 400;
-        width: 50%;
+        font-weight: bold;
+        position: relative;
 
         &:after {
             content: '';
             position: absolute;
-            top: 38%;
+            top: 25%;
             left: -10%;
-            width: 100%;
-            height: 3px;
-            background: $color_orange;
-            rotate: -30deg;
+            width: 120%;
+            height: 0.1em;
+            background: $color_red;
+            rotate: -25deg;
+            border-radius: 0.15em;
         }
     }
 
@@ -206,17 +247,12 @@
 
     &__cart {
         cursor: pointer;
+        padding: 2%;
     }
 
     &__cat {
         position: absolute;
         bottom: 0;
         left: 42%;
-    }
-
-    &:hover {
-        scale: 1.1;
-        outline: 4px solid $color_orange;
-        box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
     }
 }
