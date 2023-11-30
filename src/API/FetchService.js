@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default class FetchService {
-    static async getAllProduct() {
-        const response = await axios.get(`https://dummyjson.com/products?skip=0&limit=100`)
+    static async getAllProducts(skip = 0, limit = 100) {
+        const response = await axios.get(`https://dummyjson.com/products?skip=${skip}&limit=${limit}`)
             
         return response
     }

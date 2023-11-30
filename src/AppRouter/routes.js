@@ -4,14 +4,14 @@ import Products from "./pages/Products"
 import Login from "./pages/Login"
 import ProductsCard from "./pages/ProductsCard"
 import About from "./pages/About"
-import { useGetAllProducts } from "../hooks/useGetAllProducts"
+import { useGetProducts } from "../hooks/useGetProducts"
 import { useGetСartProducts } from "../hooks/useGetСartProducts"
 import { useGetFavoritesProducts } from "../hooks/useGetFavoritesProducts"
 
 export const privateRoutes = [
     {path: '', element: <About />}, 
     {path: 'about', element: <About />}, 
-    {path: 'products', element: <Products hook={useGetAllProducts} />}, 
+    {path: 'products', element: <Products hook={useGetProducts} />}, 
     {path: 'products/:id', element: <ProductsCard />}, 
     {path: 'cart', element: <Products hook={useGetСartProducts} />}, 
     {path: 'favorites', element: <Products hook={useGetFavoritesProducts} />}, 

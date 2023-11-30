@@ -8,7 +8,7 @@ import removeSound from '../audio/remove.mp3'
 import { GlobalContext } from '../context/createContext'
 import { createArray } from '../utils/createArray'
 
-const Product = ({ product, products, returnProdustsList }) => {
+const Product = ({ product, products, currentList }) => {
     const { myProducts, setMyProducts } = useContext(GlobalContext)
     const ratingPercentage = `${product.rating * 20}%`
     const lastPrice = ((product.price * (product.discountPercentage / 100)) + product.price).toFixed(0) + ' $'
@@ -52,7 +52,6 @@ const Product = ({ product, products, returnProdustsList }) => {
         fetching()
     }, [image])
 
-
     const changeStatus = (products, product, key) => {
         if (product[key]) {
             product[key] = false
@@ -65,7 +64,7 @@ const Product = ({ product, products, returnProdustsList }) => {
             new Audio(addSound).play()
         }
 
-        window.location.pathname === '/products' && returnProdustsList(products)
+        window.location.pathname === '/products' && currentList(products)
     }
 
     return (
@@ -109,3 +108,12 @@ const Product = ({ product, products, returnProdustsList }) => {
 }
 
 export default Product
+
+
+/*let options = {
+  root: document.querySelector("#scrollArea"),
+  rootMargin: "0px",
+  threshold: 1.0,
+};
+
+let observer = new IntersectionObserver(callback, options);*/
