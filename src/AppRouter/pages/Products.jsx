@@ -16,9 +16,7 @@ const Products = ({ hook }) => {
     const list = useRef(null)
     const observer = useRef(null)
     const MyIntersectionObserver = useRef('')
-
     const [countList, setCountList] = useState(15)
-
 
     useEffect(() => {
         list.current = ''

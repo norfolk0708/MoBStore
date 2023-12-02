@@ -11,6 +11,7 @@
     line-height: 24px;
     padding: 0 15px;
     border: 3px solid $color_white;
+    outline: 3px solid $color_black;
     color: $color_orange;
     background: $color_black;
     text-decoration: none;
@@ -22,6 +23,7 @@
     line-height: 50px;
     padding: 0 0 0 20px;
     border: 3px solid $color_orange;
+    background: $color_white;
 
     &::placeholder {
         margin-bottom: 20px;
@@ -29,6 +31,10 @@
         line-height: 50px;
         font-size: 24px;
         color: grey;
+    }
+
+    &:focus {
+        background: white;
     }
 }
 
@@ -38,11 +44,20 @@
     padding: 0 15px;
     border: 3px solid $color_orange;
     color: grey;
+    background: $color_white;
+
+    &:focus {
+        background: white;
+    }
 
     option {
         font-weight: 600;
         font-size: 24px;
         color: $color_black;
-    }
+        background: white;
 
+        &:hover {
+            background: $color_orange;
+        }
+    }
 }

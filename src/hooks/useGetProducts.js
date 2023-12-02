@@ -3,6 +3,7 @@ import FetchService from "../API/FetchService"
 import { useFetching } from "./useFetching"
 import { GlobalContext } from "../context/createContext"
 
+/// я на мастере
 export const useGetProducts = () => {
     const { allProductsList, setAllProductsList } = useContext(GlobalContext)
     
