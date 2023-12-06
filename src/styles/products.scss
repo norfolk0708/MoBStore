@@ -8,10 +8,10 @@
 }
 
 .product {
-    flex: 0 0 330px;
-    height: 470px;
+    flex: 0 0 21em;
+    height: calc(50vh - 8vh);
     border-radius: 5%;
-    margin: 20px;
+    margin: 1em;
     transition: all 0.7s 0.1s;
     position: relative;
     overflow: hidden;

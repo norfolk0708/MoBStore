@@ -1,37 +1,108 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    width: 2000px;
-    margin: 150px 0;
+    padding: 0.5em;
+    width: 80%;
+    margin: 5% 10%;
     color: $color_black;
     font-size: 35px;
     background-color: $color_white;
     border: 5px solid $color_orange;
     border-radius: 15px;
     box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
+    display: flex;
+    flex-wrap: wrap;
 
     &__title {
         font-size: 60px;
         text-align: center;
+        padding: 20px;
+        flex: 0 0 100%;
     }
 
-    &__images {
-        display: flex;
-        width: 100%;
-    }
+    &__slider {
+        overflow: hidden;
+        position: relative;
+        flex: 0 0 60%;
 
-    &__image {
-        width: 25%;
-        height: 300px;
-        object-fit: cover;
-        padding: 5px;
-        margin: 5px;
-        border: 5px solid $color_orange;
-        border-radius: 15px;
+        .slide-list {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+
+            .slide {
+                flex: 1 0 100%;
+                position: relative;
+
+                .slide-image {
+                    display: flex;
+                    margin: 0 auto;
+                    max-height: 500px;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .arrows {
+            color: white;
+            display: flex;
+            font-size: 30px;
+            justify-content: space-between;
+            height: 100%;
+            position: absolute;
+            top: 48%;
+            width: 100%;
+            height: 2em;
+            z-index: 1002;
+
+            .arrow {
+                height: 2em;
+                width: 2em;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .arrow.left {
+                margin-left: 5px;
+                transform: rotate(-180deg);
+            }
+
+            .arrow.right {
+                margin-right: 5px;
+            }
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            .dot {
+                width: 0.5em;
+                height: 0.5em;
+                background: grey;
+                border-radius: 50%;
+                margin: 0.7em;
+            }
+
+            .selected {
+                background: $color_orange;
+                border: 2px solid $color_white;
+                outline: 2px solid $color_black;
+            }
+        }
     }
 
     &__info {
         padding: 15px;
+        flex: 0 0 40%;
+        font-size: 0.7em;
 
         &__price {}
 
