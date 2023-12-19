@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
-import defaultCart from '../icons/cartDefault.png'
-import activeCart from '../icons/cartActive.png'
+import defaultCart from '../icons/cart-default.png'
+import activeCart from '../icons/cart-active.png'
 import { Link } from 'react-router-dom'
 import { useFetching } from '../hooks/useFetching'
 import addSound from '../audio/add.mp3'
@@ -72,7 +72,7 @@ const Product = ({ product, products, currentList }) => {
             {error
                 ? <p className='message'>{error}</p>
                 : !isLoading &&
-                <div className='product' style={{ outline: `5px solid ${styles.outlineColor}` }}>
+                <div className='product' style={{ outline: `3px solid ${styles.outlineColor}` }}>
                     <div className='product__head'>
                         <Link className='product__title' to={`/products/${product.id}`}>{product.title}</Link>
                         <div className='product__favorites' onClick={() => changeStatus(products, product, 'favorites')}>

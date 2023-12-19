@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { toCapitalLetter } from '../../../utils/toCapitalLetter'
 
-const Nav = ({ props }) => {
+const IconLinkBtn = ({ props, toogleNavs }) => {
     const count = props.count ? <div>{props.count}</div> : <></>
-    const popupMessage = toCapitalLetter(props.navigate.slice(1))
+    const popupMessage = props.name || toCapitalLetter(props.navigate.slice(1))
 
     return (
         <>
-            <Link to={props.navigate} popup={popupMessage} >
+            <Link to={props.navigate} popup={popupMessage} onClick={e => toogleNavs(e)}>
                 <img src={props.icon} alt={props.navigate} key={props.navigate} />
                 {count}
             </Link>
@@ -16,4 +16,4 @@ const Nav = ({ props }) => {
     )
 }
 
-export default Nav
+export default IconLinkBtn

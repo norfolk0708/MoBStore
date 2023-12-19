@@ -1,15 +1,10 @@
-import React, { useEffect, useState, createContext } from "react"
-//import PropTypes from "prop-types"
-import images from '../../images/1.jpg'
+import React, { useEffect, useState } from "react"
 import Arrows from "./Arrows"
 import Dots from "./Dots"
 import SlidesList from "./SlideList";
-import FetchService from "../../API/FetchService";
+import { SliderContext } from "../../context/createContext";
 
-
-export const SliderContext = createContext();
-
-export default function Slider({ width, height, autoPlay, autoPlayTime, images }) {
+const Slider = ({ width, height, autoPlay, autoPlayTime, images }) => {
     const [items, setItems] = useState([])
     const [slide, setSlide] = useState(0)
     const [touchPosition, setTouchPosition] = useState(null)
@@ -98,6 +93,9 @@ export default function Slider({ width, height, autoPlay, autoPlayTime, images }
         </div>
     )
 }
+
+export default Slider
+
 
 /*Slider.propTypes = {
     autoPlay: PropTypes.bool,

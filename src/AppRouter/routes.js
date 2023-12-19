@@ -12,7 +12,7 @@ export const privateRoutes = [
     {path: '', element: <About />}, 
     {path: 'about', element: <About />}, 
     {path: 'products', element: <Products hook={useGetProducts} />}, 
-    {path: 'products/:id', element: <ProductsCard />}, 
+    {path: 'products/:id', element: <ProductsCard />},
     {path: 'cart', element: <Products hook={useGetСartProducts} />}, 
     {path: 'favorites', element: <Products hook={useGetFavoritesProducts} />}, 
     {path: 'error', element: <Error />},

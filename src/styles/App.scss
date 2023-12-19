@@ -7,6 +7,8 @@ $color_red: #f01a0b;
 @import './formElements.scss';
 @import './products.scss';
 @import './productCard.scss';
+@import './adaptive.scss';
+@import './header.scss';
 
 html,
 body {
@@ -19,131 +21,31 @@ body {
     display: flex;
     flex-direction: column;
     background: $color_black;
-}
 
-header {
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 10vh;
-    background: $color_orange;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-
-    .logo {
-        margin: 15px;
-        font-size: 38px;
-        font-weight: 800;
-        background: $color_black;
-        color: $color_white;
-        padding: 15px;
-        border: 3px solid $color_white;
-        outline: 3px solid $color_black;
-        border-radius: 25px;
-
-        span {
-            margin: 5px;
-            font-weight: lighter;
-            color: $color_orange;
-            text-decoration: underline;
-        }
-    }
-
-    nav {
-        width: 12%;
-        display: flex;
-        justify-content: space-around;
-        position: relative;
-
-        a {
-            transition: all 0.5s ease 0s;
-            border-radius: 50%;
-            text-align: center;
-            position: relative;
-
-            img {
-                padding: 1em;
-                scale: 1.4;
-                filter: invert(100%);
-            }
-
-            div {
-                position: absolute;
-                top: 0%;
-                right: 0%;
-                color: $color_white;
-                width: 1.4em;
-                height: 1.4em;
-                border-radius: 50%;
-                text-align: center;
-                background: $color_red;
-                font-weight: 800;
-                line-height: 1.4em;
-                animation: count 0.4s ease-in 0s 1 normal none;
-            }
-
-            &:after {
-                content: '' attr(popupMessage)'';
-                position: absolute;
-                bottom: -0.8em;
-                left: 2em;
-                color: $color_white;
-                font-size: 1.3em;
-                padding: 0.2em;
-                opacity: 0;
-                transition: all 0.5s 0.8s;
-            }
-
-            &:hover:after {
-                opacity: 1;
-            }
-        }
-
-        .active {
-            scale: 1.4;
-
-            img {
-                filter: invert(0%);
-            }
-
-        }
-
-        @keyframes count {
-            0% {
-                top: -100%;
-            }
-
-            100% {
-                top: 0%;
-            }
-        }
+    @media only screen and (max-width : 1600px) {
+        font-size: 13px;
     }
 }
 
 main {
-    padding-top: 10vh;
     flex: 1 1 auto;
+    min-height: 70vh;
 
     .container {
+        padding: 0 0.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         min-height: 70vh;
         position: relative;
-
     }
 }
 
 footer {
-    margin-top: 5%;
     background: $color_white;
     color: $color_black !important;
-    font-size: 50px;
+    font-size: 3rem;
     color: $color_black;
     text-align: center;
     line-height: 20vh;
@@ -157,10 +59,10 @@ a {
     height: 20%;
     color: $color_white;
     text-align: center;
-    font-size: 50px;
+    font-size: 3rem;
     border: 5px solid $color_white;
     outline: 5px solid $color_orange;
     box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
-    border-radius: 25px;
-    padding: 1em;
+    border-radius: 2rem;
+    padding: 1rem;
 }

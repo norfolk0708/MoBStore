@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Select from './UI/selects/Select'
 import Input from './UI/Inputs/Input'
-import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context/createContext'
+import IconBtn from './UI/buttons/IconBtn'
+import sort from '../icons/header/sort.png'
+import toogleClass from '../utils/toogleClass'
 
-const Filter = ({ filter, setFilter }) => {
-    const { allProductsList, myProducts } = useContext(GlobalContext)
-    const navigate = useNavigate()
+const Filter = ({ status }) => {
+    const { allProductsList, myProducts, filterProducts, setFilterProducts } = useContext(GlobalContext)
     const [clickOnHeader, setClickOnHeader] = useState(false)
     const [productsList, setProductsList] = useState(allProductsList)
+    const [sortStatus, setSortStatus] = useState()
 
     function clickOnHeaderFunc() {
         setClickOnHeader(prevState => !prevState)
@@ -39,24 +41,25 @@ const Filter = ({ filter, setFilter }) => {
     const sortOptions = ['discountPercentage', 'price', 'rating']
 
     return (
-        <div onClick={clickOnHeaderFunc} style={{ display: "flex" }}>
+        <div className={status} onClick={clickOnHeaderFunc}>
+            <Input
+                value={filterProducts.query}
+                onChange={e => setFilterProducts({ ...filterProducts, query: e.target.value })}
+                placeholder='Search...'
+                type='text'
+            />
+            {status.includes('active') && <IconBtn props={{ name: `Sort`, icon: sort, className: 'header__sort' }} toogleClass={toogleClass} />}
             <Select
-                onChange={selectedSort => setFilter({ ...filter, category: selectedSort })}
-                value={filter.category}
+                onChange={selectedSort => setFilterProducts({ ...filterProducts, category: selectedSort })}
+                value={filterProducts.category}
                 options={categories}
-                defaultValue='Choose category'
+                defaultValue='Category'
             />
             <Select
-                onChange={selectedSort => setFilter({ ...filter, sort: selectedSort })}
-                value={filter.sort}
+                onChange={selectedSort => setFilterProducts({ ...filterProducts, sort: selectedSort })}
+                value={filterProducts.sort}
                 options={sortOptions}
                 defaultValue='Sortе'
-            />
-            <Input
-                value={filter.query}
-                onChange={e => setFilter({ ...filter, query: e.target.value })}
-                placeholder='Enter name of product...'
-                type='text'
             />
         </div>
     )

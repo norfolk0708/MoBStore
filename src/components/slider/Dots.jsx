@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import Dot from "./Dot";
-import { SliderContext } from "./Slider";
+import { SliderContext } from "../../context/createContext";
 
-export default function Dots() {
+const Dots = () => {
     const { slidesCount } = useContext(SliderContext)
 
     const renderDots = () => {
@@ -16,3 +16,5 @@ export default function Dots() {
 
     return <div className="dots">{renderDots()}</div>
 }
+
+export default Dots

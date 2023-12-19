@@ -3,13 +3,13 @@ import './styles/App.scss'
 import AppRouter from './AppRouter/AppRouter'
 import Header from './components/Header'
 import { GlobalContext } from './context/createContext'
-import { useMyContext } from './hooks/useMyContext'
+import { useGlobalContext } from './hooks/context/useGlobalContext'
 
 function App() {
-    const myContext = useMyContext()
+    const globalContextInfo = useGlobalContext()
 
   	return (
-        <GlobalContext.Provider value={myContext}>
+        <GlobalContext.Provider value={globalContextInfo}>
             <BrowserRouter >
                 <Header />
                 <main>

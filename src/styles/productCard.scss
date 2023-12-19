@@ -1,20 +1,20 @@
 .card {
-    padding: 0.5em;
+    padding: 0.5rem;
     width: 80%;
     margin: 5% 10%;
     color: $color_black;
-    font-size: 35px;
+    font-size: 2.5rem;
     background-color: $color_white;
     border: 5px solid $color_orange;
-    border-radius: 15px;
+    border-radius: 0.5rem;
     box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
     display: flex;
     flex-wrap: wrap;
 
     &__title {
-        font-size: 60px;
+        font-size: 3rem;
         text-align: center;
-        padding: 20px;
+        padding: 0.5rem;
         flex: 0 0 100%;
     }
 
@@ -37,7 +37,7 @@
                 .slide-image {
                     display: flex;
                     margin: 0 auto;
-                    max-height: 500px;
+                    max-height: 35rem;
                     width: 100%;
                     object-fit: contain;
                 }
@@ -47,18 +47,17 @@
         .arrows {
             color: white;
             display: flex;
-            font-size: 30px;
+            font-size: 0.7rem;
             justify-content: space-between;
             height: 100%;
             position: absolute;
-            top: 48%;
+            top: calc(50% - 1em);
             width: 100%;
-            height: 2em;
-            z-index: 1002;
+            z-index: 1000;
 
             .arrow {
-                height: 2em;
-                width: 2em;
+                height: 2rem;
+                width: 2rem;
 
                 &:hover {
                     cursor: pointer;
@@ -66,12 +65,12 @@
             }
 
             .arrow.left {
-                margin-left: 5px;
+                margin-left: 0.3rem;
                 transform: rotate(-180deg);
             }
 
             .arrow.right {
-                margin-right: 5px;
+                margin-right: 0.3rem;
             }
         }
 
@@ -84,11 +83,11 @@
             right: 0;
 
             .dot {
-                width: 0.5em;
-                height: 0.5em;
+                width: 0.5rem;
+                height: 0.5rem;
                 background: grey;
                 border-radius: 50%;
-                margin: 0.7em;
+                margin: 0.7rem;
             }
 
             .selected {
@@ -100,9 +99,9 @@
     }
 
     &__info {
-        padding: 15px;
+        padding: 1rem;
         flex: 0 0 40%;
-        font-size: 0.7em;
+        font-size: 2rem;
 
         &__price {}
 

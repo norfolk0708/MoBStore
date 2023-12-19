@@ -1,8 +1,8 @@
 
 import React, { useContext } from "react"
-import { SliderContext } from "./Slider"
+import { SliderContext } from "../../context/createContext"
 
-export default function Dot({ number }) {
+const Dot = ({ number }) => {
     const { goToSlide, slideNumber } = useContext(SliderContext)
 
     return (
@@ -12,3 +12,5 @@ export default function Dot({ number }) {
         />
     )
 }
+
+export default Dot

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { SliderContext } from "./Slider";
 import arrow from '../../icons/arrow.png'
+import { SliderContext } from "../../context/createContext";
 
-export default function Arrows() {
+const Arrows = () => {
     const { changeSlide } = useContext(SliderContext);
 
     return (
@@ -12,3 +12,5 @@ export default function Arrows() {
         </div>
     )
 }
+
+export default Arrows

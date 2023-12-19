@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useMyContext = () => {
+export const useGlobalContext = () => {
     const [isAuth, setIsAuth] = useState(false)
     const [isVisibleLoginForm, setVisibleLoginForm] = useState(false)
     const [allProductsList, setAllProductsList] = useState('')
