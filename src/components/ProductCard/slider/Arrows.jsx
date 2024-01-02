@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import arrow from '../../icons/arrow.png'
-import { SliderContext } from "../../context/createContext";
+import arrow from '../../../icons/arrow.png'
+import { SliderContext } from "../../../context/createContext";
 
 const Arrows = () => {
     const { changeSlide } = useContext(SliderContext);

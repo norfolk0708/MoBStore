@@ -7,7 +7,6 @@ $color_red: #f01a0b;
 @import './formElements.scss';
 @import './products.scss';
 @import './productCard.scss';
-@import './adaptive.scss';
 @import './header.scss';
 
 html,
@@ -29,7 +28,8 @@ body {
 
 main {
     flex: 1 1 auto;
-    min-height: 70vh;
+    display: flex;
+    justify-content: center;
 
     .container {
         padding: 0 0.5rem;
@@ -38,6 +38,7 @@ main {
         justify-content: center;
         align-items: center;
         min-height: 70vh;
+        width: 100%;
         position: relative;
     }
 }
@@ -48,7 +49,7 @@ footer {
     font-size: 3rem;
     color: $color_black;
     text-align: center;
-    line-height: 20vh;
+    //line-height: 20vh;
 }
 
 a {
@@ -56,13 +57,15 @@ a {
 }
 
 .message {
-    height: 20%;
+    line-height: 5rem;
+    min-width: 15%;
     color: $color_white;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
+    margin: 0 2rem;
     border: 5px solid $color_white;
     outline: 5px solid $color_orange;
     box-shadow: 11px 12px 14px 6px rgb(207 115 9 / 20%);
-    border-radius: 2rem;
+    border-radius: 1rem;
     padding: 1rem;
 }

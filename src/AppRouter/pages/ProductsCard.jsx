@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useFetching } from '../../hooks/useFetching'
 import FetchService from '../../API/FetchService'
 import { toCapitalLetter } from '../../utils/toCapitalLetter'
-import Slider from '../../components/slider/Slider'
+import Slider from '../../components/ProductCard/slider/Slider'
 import Loader from '../../components/UI/loaders/Loader'
+import CardInfo from '../../components/ProductCard/CardInfo'
 
 const ProductsCard = () => {
     const id = useParams().id
@@ -25,28 +26,15 @@ const ProductsCard = () => {
     }, [])
 
     const card = () => {
-        console.log([getInfo, isLoading, error])
-        console.log(productInfo, 'productInfo')
-
         return (
             <>
                 <div className='card__title'>{productInfo.title}</div>
                 <Slider
-                    width={'100%'}
-                    height={'100%'}
-                    autoPlay={false}
-                    autoPlayTime={5000}
+                    autoPlay={true}
+                    autoPlayTime={3000}
                     images={productInfo.images}
                 />
-                <div className='card__info'>
-                    <div className='card__price'>{productInfo.price} $</div>
-                    <div className='card__discountPercentage'>{productInfo.discountPercentage} %</div>
-                    <div className='card__rating'>Raiting: {productInfo.rating}</div>
-                    <div className='card__stock'>Available: {productInfo.stock} pieces.</div>
-                    <div className='card__brand'>Brand: {productInfo.brand}</div>
-                    <div className='card__category'>Category: {productInfo.category}</div>
-                    <div className='card__category'>Description: {productInfo.description}</div>
-                </div>
+                <CardInfo productInfo={productInfo} />
             </>
         )
     }

@@ -14,6 +14,8 @@ import cart from '../icons/header/cart.png'
 import magnifier from '../icons/header/magnifier.png'
 import burgerMenu from '../icons/header/burger-menu.png'
 import toogleClass from '../utils/toogleClass'
+import logoutIcon from '../icons/header/logout.png'
+import loginIcon from '../icons/header/logout.png'
 
 const Header = () => {
     const { setIsAuth, myProducts, setVisibleLoginForm } = useContext(GlobalContext)
@@ -23,7 +25,12 @@ const Header = () => {
     const isAuth = localStorage.getItem('auth')
     const [menuStatus, setMenuStatus] = useState('header__menu')
     const [filterStatus, setFilterStatus] = useState('header__filter')
+    const [logoutBtn, setLogoutBtn] = useState(<ButtonMain onClick={logout}>LOGOUT</ButtonMain>)
+    const [loginBtn, setLoginBtn] = useState(<ButtonMain onClick={login}>LOGIN</ButtonMain>)
 
+    /*const loginBtn = menuStatus === 'header__menu active'
+        ? <IconBtn props={{ name: `Login`, icon: loginIcon, className: 'header__login' }} toogleClass={login} />
+        : <ButtonMain onClick={login}>LOGIN</ButtonMain>*/
 
     const pageLinks = [
         { navigate: `/products`, icon: shop },
@@ -36,29 +43,31 @@ const Header = () => {
 
         if (icon.classList.value.includes('search')) {
             icon.classList.value.includes('active') ? setFilterStatus('header__filter') : setFilterStatus('header__filter active')
-            //setMenuStatus('header__menu')
-            //toogleClass(e)
         }
 
         if (icon.classList.value.includes('burger')) {
             icon.classList.value.includes('active') ? setMenuStatus('header__menu') : setMenuStatus('header__menu active')
-            //icon.classList.value.includes('active') && setFilterStatus('header__filter')
-            // toogleClass(e)
+            icon.classList.value.includes('active')
+                ? setTimeout(setLogoutBtn, 500, <ButtonMain onClick={logout}>LOGOUT</ButtonMain>)
+                : setLogoutBtn(<IconBtn props={{ name: `Logout`, icon: logoutIcon, className: 'header__logout' }} toogleClass={logout} />)
+            icon.classList.value.includes('active')
+                ? setTimeout(setLogoutBtn, 500, <ButtonMain onClick={login}>LOGIN</ButtonMain>)
+                : setLogoutBtn(<IconBtn props={{ name: `Login`, icon: loginIcon, className: 'header__login' }} toogleClass={login} />)
         }
-
 
         toogleClass(e)
     }
 
-    function loqout() {
+    function logout() {
         setIsAuth(false)
         localStorage.clear()
         setVisibleLoginForm(false)
         navigate('/about')
+        console.log('logout')
     }
 
     function login() {
-        console.log('object')
+        console.log('login')
         setVisibleLoginForm(true)
     }
 
@@ -72,9 +81,9 @@ const Header = () => {
                         ? <>
                             <IconBtn props={{ name: `Search`, icon: magnifier, className: 'header__search' }} toogleClass={changeStatus} />
                             <NavBar links={pageLinks} />
-                            <ButtonMain onClick={loqout}>LOGOUT</ButtonMain>
+                            {logoutBtn}
                         </>
-                        : <ButtonMain onClick={login}>LOGIN</ButtonMain>
+                        : loginBtn
                     }
                 </div>
                 <IconBtn className={'header__burger'} props={{ name: `Menu`, icon: burgerMenu, className: 'header__burger' }} toogleClass={changeStatus} />

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Dot from "./Dot";
-import { SliderContext } from "../../context/createContext";
+import { SliderContext } from "../../../context/createContext";
 
 const Dots = () => {
     const { slidesCount } = useContext(SliderContext)

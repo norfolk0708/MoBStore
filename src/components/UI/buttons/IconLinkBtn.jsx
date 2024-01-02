@@ -4,11 +4,11 @@ import { toCapitalLetter } from '../../../utils/toCapitalLetter'
 
 const IconLinkBtn = ({ props, toogleNavs }) => {
     const count = props.count ? <div>{props.count}</div> : <></>
-    const popupMessage = props.name || toCapitalLetter(props.navigate.slice(1))
+    const prompt = props.name || toCapitalLetter(props.navigate.slice(1))
 
     return (
         <>
-            <Link to={props.navigate} popup={popupMessage} onClick={e => toogleNavs(e)}>
+            <Link to={props.navigate} prompt={prompt} onClick={e => toogleNavs(e)}>
                 <img src={props.icon} alt={props.navigate} key={props.navigate} />
                 {count}
             </Link>

@@ -10,7 +10,7 @@
 .product {
     flex: 0 0 17rem;
     height: calc(50vh - 10vh);
-    border-radius: 5%;
+    border-radius: 1rem;
     margin: 1.3rem;
     transition: all 0.7s 0.1s;
     position: relative;
@@ -226,7 +226,6 @@
             color: $color_orange;
         }
 
-
         &__items {
             display: flex;
             position: absolute;
@@ -252,6 +251,7 @@
     &__cat {
         position: absolute;
         bottom: 0;
-        left: 42%;
+        left: calc(50% - 12rem);
+        width: 20rem;
     }
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Slide from "./Slide";
-import { SliderContext } from "../../context/createContext";
+import { SliderContext } from "../../../context/createContext";
 
 const SlidesList = () => {
     const { slideNumber, items } = useContext(SliderContext)

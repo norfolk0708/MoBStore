@@ -1,19 +1,18 @@
 .header {
     width: 100vw;
-    height: 10vh;
+    height: 8rem;
 
     &__container {
         width: 100vw;
-        min-height: 10vh;
+        height: 8rem;
         padding: 0.8rem 2rem;
         background: $color_orange;
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 200;
+        z-index: 10;
         border-radius: 0 0 1rem 1rem;
         display: flex;
-        //flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
     }
@@ -59,7 +58,7 @@
             transition: top 0.5s ease-in;
 
             &.active {
-                top: calc(10vh - 0.5rem);
+                top: calc(100% - 1rem);
             }
         }
 
@@ -67,7 +66,7 @@
             flex-direction: column;
             align-items: baseline !important;
             justify-content: flex-start !important;
-            width: 70.2vw;
+            width: 68vw;
 
             select {
                 height: 0;
@@ -87,27 +86,6 @@
         }
     }
 
-    &__sort {
-        position: absolute;
-        display: inline-block;
-        top: 0;
-        right: 0;
-
-        img {
-            scale: 1 !important;
-            padding: 1rem 0.5rem !important;
-        }
-
-    }
-
-    &__search {
-        display: none;
-
-        @media only screen and (max-width : 1280px) {
-            display: block !important;
-        }
-    }
-
     &__menu {
         display: flex;
         align-items: center;
@@ -119,7 +97,6 @@
             margin: 0 2rem 0 0rem;
 
             a {
-                border-radius: 50%;
                 text-align: center;
                 position: relative;
 
@@ -130,28 +107,12 @@
                     color: $color_white;
                     width: 1.4rem;
                     height: 1.4rem;
-                    border-radius: 50%;
                     text-align: center;
                     background: $color_red;
+                    border-radius: 50%;
                     font-weight: 800;
                     line-height: 1.4rem;
                     animation: count 0.4s ease-in 0s 1 normal none;
-                }
-
-                &:after {
-                    content: '' attr(popupMessage)'';
-                    position: absolute;
-                    bottom: -0.8rem;
-                    left: 2rem;
-                    color: $color_white;
-                    font-size: 1.3rem;
-                    padding: 0.2rem;
-                    opacity: 0;
-                    transition: all 0.5s 0.8s;
-                }
-
-                &:hover:after {
-                    opacity: 1;
                 }
             }
 
@@ -167,20 +128,21 @@
         }
 
         @media only screen and (max-width : 600px) {
-            position: fixed;
-            top: -30vh;
-            right: -0%;
+            position: absolute;
+            top: -400%;
+            right: 0;
             flex-direction: column;
+            align-items: flex-start;
             background: $color_orange;
-            border-radius: 0 0 0 2rem;
-            padding: 2rem;
-            transition: all 0.5s ease;
-            width: 30vw;
-            opacity: 0;
+            border-radius: 0 0 0 1rem;
+            padding: 10px;
+            transition: top 0.5s ease-in;
+            width: 100px;
+            //opacity: 0;
 
             &.active {
-                top: 10.5vh;
-                opacity: 1;
+                top: calc(100% - 1rem);
+                //opacity: 1;
             }
 
             nav {
@@ -191,8 +153,31 @@
 
     &__burger {
         display: none;
+        position: relative;
 
         @media only screen and (max-width : 600px) {
+            display: block !important;
+        }
+    }
+
+    &__sort {
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        right: 0;
+
+        img {
+            scale: 1 !important;
+            padding: 1rem 0.5rem !important;
+        }
+
+    }
+
+    &__search {
+        display: none;
+        position: relative;
+
+        @media only screen and (max-width : 1280px) {
             display: block !important;
         }
     }
@@ -213,5 +198,21 @@
     .active~select {
         height: 3rem;
         border: 3px solid $color_orange;
+    }
+
+    [prompt]:after {
+        content: '' attr(prompt)'';
+        position: absolute;
+        bottom: -0.8rem;
+        right: 2rem;
+        color: $color_white;
+        font-size: 1.3rem;
+        padding: 0.2rem;
+        opacity: 0;
+        transition: all 0.5s 0.8s;
+    }
+
+    [prompt]:hover:after {
+        opacity: 1;
     }
 }

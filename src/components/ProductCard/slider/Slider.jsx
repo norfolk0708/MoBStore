@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react"
 import Arrows from "./Arrows"
 import Dots from "./Dots"
 import SlidesList from "./SlideList";
-import { SliderContext } from "../../context/createContext";
+import { SliderContext } from "../../../context/createContext";
 
-const Slider = ({ width, height, autoPlay, autoPlayTime, images }) => {
+const Slider = ({ /*width, height,*/ autoPlay, autoPlayTime, images }) => {
     const [items, setItems] = useState([])
     const [slide, setSlide] = useState(0)
     const [touchPosition, setTouchPosition] = useState(null)
@@ -72,7 +72,6 @@ const Slider = ({ width, height, autoPlay, autoPlayTime, images }) => {
 
     return (
         <div
-            style={{ width, height }}
             className="card__slider"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
